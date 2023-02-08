@@ -1,4 +1,4 @@
-# 皮皮美食網
+# 我的餐廳清單
 
 一個使用 Node.js + Express 打造的餐廳美食網站，可依照餐廳名稱與類別進行搜尋及預覽。
 
@@ -7,13 +7,7 @@
 
 ## 專案畫面
 
-![image](https://github.com/pierceshih15/restaurantList/blob/master/public/img/homePage.png)
 
-![image](https://github.com/pierceshih15/restaurantList/blob/master/public/img/restaurantInfo.png)
-
-![image](https://github.com/pierceshih15/restaurantList/blob/master/public/img/addNewRestaurant.png)
-
-![image](https://github.com/pierceshih15/restaurantList/blob/master/public/img/loginPage.png)
 
 ## Features - 產品功能
 
