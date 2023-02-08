@@ -51,23 +51,19 @@ cd restaurantList
 5. 安裝 nodemon 套件
 
 ```
-在 Terminal 輸入 nodemon app.js 指令
+在 Terminal 輸入 npm install -g nodemon
 ```
 
 6. 啟動伺服器，執行 app.js 檔案
 
 ```
-nodemon app.js
+nodemon app.js（note: 也可利用 npm run dev 進行直接預覽）
 ```
 
 7. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結
 
 ```
 The Express server is running on http://localhost:3002
-```
-
-```
-note: 若不需要更變，可利用 npm run dev 進行直接預覽
 ```
 
 ## Contributor - 專案開發人員
