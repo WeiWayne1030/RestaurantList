@@ -6,7 +6,8 @@
 
 
 ## 專案畫面
-
+![image](https://github.com/WeiWayne1030/restaurantList/blob/main/public/description.png)
+![image](https://github.com/WeiWayne1030/restaurantList/blob/main/public/index.png)
 
 
 ## Features - 產品功能
