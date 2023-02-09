@@ -19,6 +19,14 @@
 
 1. [Node.js](https://nodejs.org/en/)
 
+## Using tool - 使用工具
+Node.js v12.22.12
+Nodemon
+Express v4.16.4
+Express-Handlebars v3.0.0
+Bootstrap v5.3.0
+front-awesome v5.8.1
+
 
 ## Installing - 專案安裝流程
 
@@ -51,10 +59,10 @@ cd restaurantList
 在 Terminal 輸入 npm install -g nodemon
 ```
 
-6. 啟動伺服器，執行 app.js 檔案
+6. 啟動伺服器，輸入執行專案
 
 ```
-nodemon app.js（note: 也可利用 npm run dev 進行直接執行）
+使用 npm run dev 執行
 ```
 
 7. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結
