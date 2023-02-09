@@ -18,10 +18,7 @@
 ## Environment SetUp - 環境建置
 
 1. [Node.js](https://nodejs.org/en/)
-2. npm(https://www.npmjs.com/)
-3. express 4.16.4版本
-4. nodemon
-5. express-handlebars 3.0.0
+
 
 ## Installing - 專案安裝流程
 
