@@ -24,7 +24,7 @@ app.get('/restaurants/:restaurant_id', (req, res) => {
 
 //搜尋功能
 app.get('/search', (req, res) => {
-  const keywords = req.query.keyword
+  const keywords = req.query.keywords
   const keyword = keywords.trim().toLowerCase()
   const filteredRestaurant = restaurants.results.filter(restaurant => {
     return restaurant.name.toLowerCase().includes(keyword) ||
