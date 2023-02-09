@@ -54,7 +54,7 @@ cd restaurantList
 6. 啟動伺服器，執行 app.js 檔案
 
 ```
-nodemon app.js（note: 也可利用 npm run dev 進行直接預覽）
+nodemon app.js（note: 也可利用 npm run dev 進行直接執行）
 ```
 
 7. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結
