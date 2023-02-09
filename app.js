@@ -31,7 +31,7 @@ app.get('/search', (req, res) => {
     restaurant.category.includes(keyword)
 
   })
-  res.render('index', { restaurants: filteredRestaurant, keyword: keyword })
+  res.render('index', { restaurants: filteredRestaurant, keyword: keywords })
 })
 
 //設置監聽器
