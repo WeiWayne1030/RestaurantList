@@ -20,12 +20,12 @@
 1. [Node.js](https://nodejs.org/en/)
 
 ## Using tool - 使用工具
-Node.js v12.22.12
-Nodemon
-Express v4.16.4
-Express-Handlebars v3.0.0
-Bootstrap v5.3.0
-front-awesome v5.8.1
+1. Node.js v12.22.12
+2. Nodemon
+3. Express v4.16.4
+4. Express-Handlebars v3.0.0
+5. Bootstrap v5.3.0
+6. front-awesome v5.8.1
 
 
 ## Installing - 專案安裝流程
