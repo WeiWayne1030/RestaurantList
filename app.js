@@ -1,11 +1,12 @@
 //載入及設定模組路由
 const express = require('express')
 const mongoose = require('mongoose')
-const restaurants = require('./restaurant.json')
 const app = express()
 const port = 3002
 const exphbs = require('express-handlebars')
 const Restaurant = require('./models/restaurant')
+// 引用 body-parser
+const bodyParser = require('body-parser')
 
 mongoose.set('strictQuery', false) 
 
@@ -19,11 +20,6 @@ app.engine('handlebars', exphbs({defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 //設定靜態資料
 app.use(express.static('public'))
-//處理路由
-//首頁
-app.get('/', (req, res) => {
-  res.render('index', {restaurants: restaurants.results })
-})
 
 //設定連線到mongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -39,32 +35,59 @@ db.once('open', () => {
   console.log('mongodb connected!')
 })
 
+// 用 app.use 規定每一筆請求都需要透過 body-parser 進行前置處理
+app.use(bodyParser.urlencoded({ extended: true }))
+
 //預覽全部餐廳資料
 app.get('/', (req, res) =>{
   Restaurant.find({})
     .lean()
-    .then(restaurantsData => res.render('index', { restaurantsData }))
+    .then((restaurants) => res.render('index', { restaurants }))
     .catch(error => console.log(error))
 })
 
-//餐廳詳細頁面
-app.get('/restaurants/:restaurant_id', (req, res) => {
-  const restaurant = restaurants.results.find(
-    restaurant => restaurant.id.toString() === req.params.restaurant_id
-  )  
-  res.render('show', {restaurant: restaurant})
+//新增餐廳
+app.get('/restaurants/new', (req, res) =>{
+  return res.render('new')
 })
+
+app.post('/restaurants', (req, res) => {
+  Restaurant.create(req.body)
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
+
+//餐廳詳細頁面
+app.get("/restaurants/:id", (req, res) => {
+  const id = req.params.id;
+  Restaurant
+    .findById(id)
+    .lean()
+    .then((restaurant) => res.render("show", { restaurant }))
+    .catch((error) => console.log(error));
+});
+
 
 //搜尋功能
 app.get('/search', (req, res) => {
+  if(!req.query.keywords) {
+    res.redirect('/')
+  }
+
   const keywords = req.query.keywords
   const keyword = req.query.keyword.trim().toLowerCase()
-  const filteredRestaurant = restaurants.results.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(keyword) ||
-    restaurant.category.includes(keyword)
-
-  })
-  res.render('index', { restaurants: filteredRestaurant, keyword: keywords })
+  Restaurant.find({})
+    .lean()
+    .then(restaurantsData => {
+      const filterRestaurantsData = restaurantsData.filter(
+        data =>
+          data.name.toLowerCase().includes(keyword) ||
+          data.category.includes(keyword)
+      )
+      res.render("index", { restaurantsData: filterRestaurantsData, keywords })
+    })
+    .catch(err => console.log(err))
 })
 
 //設置監聽器
