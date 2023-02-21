@@ -5,6 +5,7 @@ const restaurants = require('./restaurant.json')
 const app = express()
 const port = 3002
 const exphbs = require('express-handlebars')
+const Restaurant = require('./models/restaurant')
 
 mongoose.set('strictQuery', false) 
 
@@ -36,6 +37,14 @@ db.on('error', () => {
 // 連線成功
 db.once('open', () => {
   console.log('mongodb connected!')
+})
+
+//預覽全部餐廳資料
+app.get('/', (req, res) =>{
+  Restaurant.find({})
+    .lean()
+    .then(restaurantsData => res.render('index', { restaurantsData }))
+    .catch(error => console.log(error))
 })
 
 //餐廳詳細頁面
