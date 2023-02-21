@@ -35,8 +35,16 @@
                   {{this.rating}}
                   <i class="fas fa-star fa-xs"></i>
                 </span>
-                <a href="/restaurants/{{this._id}}" class="text-secondary">
+                <div>
+                  <a href="/restaurants/{{this._id}}/" class="text-secondary">
                   detail
+                  </a>
+                </div>
+                <a href="/restaurants/{{this._id}}/edit" class="text-secondary">
+                  edit
+                </a>
+                <a href="/restaurants/{{this._id}}/delete" class="text-secondary">
+                  delete
                 </a>
               </div>
             </div>

@@ -40,7 +40,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 //預覽全部餐廳資料
 app.get('/', (req, res) =>{
-  Restaurant.find({})
+  return Restaurant.find({})
     .lean()
     .then((restaurants) => res.render('index', { restaurants }))
     .catch(error => console.log(error))
@@ -57,16 +57,26 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
 //餐廳詳細頁面
 app.get("/restaurants/:id", (req, res) => {
   const id = req.params.id;
   Restaurant
     .findById(id)
     .lean()
-    .then((restaurant) => res.render("show", { restaurant }))
+    .then( restaurant => res.render("show", { restaurant }))
     .catch((error) => console.log(error));
 });
+
+
+//修改餐廳
+app.get('/restaurants/:id/edit', (req, res) =>{
+  const id = req.params.id
+  Restaurant.findById(id)
+    .lean()
+    .then(restaurant => res.render("edit", { restaurant }))
+    .catch(err => console.log(err))
+})
+
 
 
 //搜尋功能
