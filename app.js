@@ -7,6 +7,7 @@ const exphbs = require('express-handlebars')
 const Restaurant = require('./models/restaurant')
 // 引用 body-parser
 const bodyParser = require('body-parser')
+const restaurant = require('./models/restaurant')
 
 mongoose.set('strictQuery', false) 
 
@@ -74,7 +75,18 @@ app.get('/restaurants/:id/edit', (req, res) =>{
   Restaurant.findById(id)
     .lean()
     .then(restaurant => res.render("edit", { restaurant }))
-    .catch(err => console.log(err))
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurants/:id/edit', (req, res) =>{
+  const id = req.params.id
+  Restaurant.findById(id)
+    .then(restaurant => {
+      restaurant = Object.assign(restaurant, req.body)
+      return restaurant.save()
+    })
+    .then(()=> res.redirect(`/restaurants/${id}`))
+    .catch(error => console.log(error))
 })
 
 
