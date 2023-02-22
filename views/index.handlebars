@@ -35,17 +35,15 @@
                   {{this.rating}}
                   <i class="fas fa-star fa-xs"></i>
                 </span>
-                <div>
-                  <a href="/restaurants/{{this._id}}/" class="text-secondary">
-                  detail
-                  </a>
-                </div>
+                <a href="/restaurants/{{this._id}}/" class="text-secondary">
+                  <button type="submit" class="btn btn-primary">detail</button>
+                </a>
                 <a href="/restaurants/{{this._id}}/edit" class="text-secondary">
-                  edit
+                  <button type="submit" class="btn btn-success">edit</button>
                 </a>
-                <a href="/restaurants/{{this._id}}/delete" class="text-secondary">
-                  delete
-                </a>
+                <form action="/restaurants/{{this._id}}/delete" method="post" style="display: inline" class="text-secondary">
+                  <button type="submit" class="btn btn-danger">delete</button>
+                </form>
               </div>
             </div>
         {{/each}}
