@@ -7,7 +7,6 @@ const exphbs = require('express-handlebars')
 const Restaurant = require('./models/restaurant')
 // 引用 body-parser
 const bodyParser = require('body-parser')
-const restaurant = require('./models/restaurant')
 
 mongoose.set('strictQuery', false) 
 
