@@ -66,27 +66,13 @@ cd restaurantList
 在 Terminal 輸入 npm install -g nodemon
 ```
 
-6. 匯入種子檔案
-   在 Terminal 找到 restaurantSeeder.js 檔案
-
-```
-執行 node models/seeds/restaurantSeeder.js 匯入使用者與餐廳資料
-當 terminal 出現以下字樣，即表示種子資料已新增至資料庫，按下 ctrl + c 結束執行
-```
-
-```
-Mongodb is connected!
-
-User and Restaurant data get done!
-```
-
-7. 啟動伺服器，輸入執行專案
+6. 啟動伺服器，輸入執行專案
 
 ```
 使用 npm run dev 執行
 ```
 
-8. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結
+7. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結
 
 ```
 Express is listening on http://localhost:3002
